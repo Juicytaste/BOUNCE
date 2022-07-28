@@ -1,0 +1,3 @@
+<image class="img" src="{{avatarUrl}}"></image>
+<view class="name" charset="utf-8">{{nickName}}</view>
+<view class="col_show" bindtap="gotoCollect">我收藏的演出</view>

@@ -1,0 +1,45 @@
+Page{
+    background-color: #ffffff;
+}
+@font-face {
+    font-family: "blod";
+    src: url('https://static.heytea.com/taro_trial/v1/font/WenYue-XinQingNianTi-NC-W8_1.otf');
+}
+.img{
+    border-radius: 50%;
+    position: absolute;
+    right: 100rpx;
+    top: 150rpx;
+    width: 200rpx;
+    height: 200rpx;
+    z-index: 1;
+}
+.name{
+    position: absolute;
+    top: 300rpx;
+    left: 60rpx;
+    width: 70%;
+    line-height: 80rpx;
+    height: 80rpx;
+    padding-left: 100rpx;
+    font-size: 40rpx;
+    font-weight: 800;
+    background-color: black;
+    color: #ffffff;
+    border-radius: 40rpx;
+    z-index:0;
+}
+.col_show{
+    position: absolute;
+    top: 420rpx;
+    left: 60rpx;
+    width: 70%;
+    line-height: 80rpx;
+    height: 80rpx;
+    padding-left: 86rpx;
+    font-size: 40rpx;
+    font-weight: 400;
+    font-family: "blod";
+    border-radius: 20rpx;
+    border: black solid 4rpx;
+}

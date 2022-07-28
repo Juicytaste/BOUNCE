@@ -1,0 +1,136 @@
+Page{
+    background-color: #ffffff;
+    padding-top: 50rpx;
+}
+.word_0{
+    position: absolute;
+    padding-bottom: 5rpx;
+    top: 30rpx;
+    left: 30rpx;
+    font-size: 35rpx;
+    font-weight: 600;
+}
+.disabletab{
+    color: grey;
+}
+.abletab{
+    border-bottom: solid 5rpx black;
+}
+.search{
+    position: absolute;
+    top:33rpx;
+    left: 235rpx;
+    height: 35rpx;
+    text-align: center;
+    font-size: 28rpx;
+    width: 45%;
+    border-radius: 15rpx;
+    background-color: rgba(224, 224, 224, 0.8);
+
+}
+@font-face {
+    font-family: "blod";
+    src: url('https://static.heytea.com/taro_trial/v1/font/WenYue-XinQingNianTi-NC-W8_1.otf');
+}
+.title{
+    font-size: 30rpx;
+}
+.components{
+    width:100%;
+}
+.component image{
+    width:30%;
+    float: left;
+    height: 270rpx;
+    border-radius: 30rpx;
+    margin-left: 25rpx;
+    margin-top: 10rpx;
+}
+.component{
+    background-color:#ffffff;
+    margin: 0rpx auto;
+    height: 320rpx;
+}
+.com_right{
+    font-family: "blod";
+    float:right;
+    margin-right: 10rpx;
+    margin-top: 30rpx;
+    font-size: 40rpx;
+    font-weight: 300;
+    width: 60%;
+}
+.word_1{
+    font-family: none;
+    color: grey;
+    font-size: 20rpx;
+    font-weight: 600;
+    margin-top: 23rpx;
+}
+/*轮播图*/
+.image_group{
+    position: relative;
+    margin-top: 60rpx;
+    margin-left: 30rpx;
+    margin-bottom: 60rpx;
+    width: 92%;
+    height: 300rpx;
+}
+.swiper_item {
+    width: 100%;
+    height: 300rpx;
+    overflow: hidden;
+}
+.swiper_item image{
+    width: 98%;
+    height: 100%;
+    border-radius: 15rpx;
+}
+.wonderfulshows{
+    margin-left: 30rpx;
+    width: 92%;
+    overflow:hidden;
+    white-space:nowrap;
+    height: 450rpx;
+}
+.wonderfulshow{    
+    vertical-align:top;
+    display:inline-block;
+    margin-top: 40rpx;
+    margin-right: 30rpx;
+    width: 25%;
+    height: 350rpx;
+    background-color: #ffffff;
+}
+.wonderfulshow image{
+    width: 100%;
+    height: 250rpx;
+}
+.word_02{
+    width: 100%;
+    height: 50rpx;
+    white-space:pre-wrap;
+    font-family: "blod";
+    font-size: 20rpx;
+}
+.rili{
+    width: 80rpx;
+    height: 80rpx;
+    position:absolute;
+    right: 20rpx;
+    top:860rpx;
+}
+.position{
+    position: absolute;
+    top: 35rpx;
+    right: 120rpx;
+    width: 40rpx;
+    height: 38rpx;
+}
+.location-text{
+    position: absolute;
+    right: 34rpx;
+    top:30rpx;
+    font-size: 35rpx;
+    font-weight: 700;
+}

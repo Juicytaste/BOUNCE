@@ -1,0 +1,12 @@
+<image src="https://s3.bmp.ovh/imgs/2022/05/21/5f02ffe6b2233316.png" mode="scaleToFill" class="none" style="display: {{display}};"></image>
+<view wx:for="{{show_list}}">
+    <view class="component" bindtap="goDetail" data-id="{{item._id}}">
+        <image src="{{item.imgUrl}}"></image>
+        <view class="com_right">
+            <view class="title">{{item.name}}</view>
+            <view class="word_1">{{item.place}}</view>
+            <view class="word_1">艺人：{{item.artist}}</view>
+            <view class="word_1">{{item.time}}</view>
+        </view>
+    </view>
+</view>

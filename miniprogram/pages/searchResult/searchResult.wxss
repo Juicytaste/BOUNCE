@@ -1,0 +1,47 @@
+/* miniprogram-bounce/pages/searchResult/searchResult.wxss */
+.hmly-content-list {
+	width: 90%;
+	margin: 0rpx auto;
+	margin-top: 10rpx;
+}
+
+.hmly-content {
+	width: 100%;
+	height: auto;
+	padding: 20rpx 0rpx;
+	display: flex;
+	justify-content: space-between;
+	border-bottom: 1rpx solid #f1f1f1;
+}
+
+.hmly-content-img {
+	width: 232rpx;
+	height: 250rpx;
+	border-radius: 15rpx;
+}
+.word_01{
+    font-size: 20rpx;
+}
+.hmly-content-img>image {
+	width: 90%;
+	height: 100%;
+	border-radius: 15rpx;
+}
+
+.hmly-content-right {
+	width: 530rpx;
+	height: 100%;
+	margin-left: 20rpx;
+	display: flex;
+	flex-direction: column;
+}
+
+.hmly-content-title {
+    width: 100%;
+    margin-bottom: 30rpx;
+    font-size: 35rpx;
+    font-weight: 700;
+	overflow: hidden;
+	display: flex;
+	flex-direction: column;
+}

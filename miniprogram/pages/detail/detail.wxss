@@ -1,0 +1,132 @@
+@font-face {
+    font-family: "blod";
+    src: url('https://static.heytea.com/taro_trial/v1/font/WenYue-XinQingNianTi-NC-W8_1.otf');
+}
+page{
+    background-color: #ffffff;
+}
+.top{
+    background-color: #ffffff;
+    width:100%;
+}
+.top_right{
+    margin-top: 20rpx;
+    margin-right: 30rpx;
+    padding: 10rpx;
+    background-color: white;
+    width: 45%;
+    height: 300rpx;
+    float: right;
+}
+.img{
+    float: left;
+    width: 40%;
+    height: 380rpx;
+    border-radius: 15rpx;
+    margin:30rpx 30rpx;
+}
+.name{
+    font-family: "blod";
+    font-size: 37rpx;
+    font-weight: 100;
+    margin-bottom: 20rpx;
+}
+.price{
+    font-family: "blod";
+    font-size: 30rpx;
+    font-weight: 100;
+}
+.onsale{
+    font-family: "blod";
+    font-size: 30rpx;
+    font-weight: 100;
+    margin-top: 10rpx;
+}
+.collect{
+    position: relative;
+    bottom: -10rpx;
+    left: -20rpx;
+    border-radius: 50rpx;
+    font-family: "blod";
+    line-height: 25rpx;
+    font-size:30rpx;
+    font-weight: 100;
+    height: 60rpx;
+    color:white;
+}
+.black{
+    background-color: black;
+}
+.grey{
+    background-color:rgb(192, 192, 192);
+}
+.place{
+    font-size: 30rpx;
+    width: 85%;
+    padding: 20rpx 30rpx 0rpx;
+    margin: 50rpx auto;
+    height: 100rpx;
+    background-color:  rgba(224, 224, 224, 0.8);
+    border-radius: 15rpx;
+}
+.passage{
+    width: 90%;
+    margin: 10rpx auto;
+    font-size: 30rpx;
+    padding-bottom: 200rpx;
+}
+.foot{
+    border-radius: 30rpx;
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    padding-top: 30rpx;
+    padding-bottom: 30rpx;
+    background-color: rgba(224, 224, 224);
+}
+.gotobuy{
+    margin: 10rpx auto;
+    border-radius: 50rpx;
+    font-family: "blod";
+    line-height: 45rpx;
+    font-size:40rpx;
+    font-weight: 100;
+    height: 80rpx;
+    background-color: black;
+    color:white;
+}
+.pop{
+    position: fixed;
+    bottom: 0rpx;
+    width: 100%;
+    padding-bottom: 40rpx;
+    background-color:#ffffff;
+    border: #A0A0A0 solid 3rpx;
+    border-radius: 50rpx;
+}
+.cross{
+    position: relative;
+    left: 680rpx;
+    top: -50rpx;
+    width: 30rpx;
+    height: 30rpx;
+}
+.word_1{
+    position: relative;
+    top: 50rpx;
+    left: 50rpx;
+    font-size: 40rpx;
+    font-weight: 700;
+    margin-bottom: 20rpx;
+}
+.dm{
+    margin: 30rpx auto 10rpx;
+    border-radius: 15rpx;
+    font-family: "blod";
+    line-height: 45rpx;
+    font-size:40rpx;
+    font-weight: 100;
+    height: 80rpx;
+    background-color: black;
+    color:white;
+}

@@ -1,0 +1,23 @@
+<!--miniprogram-bounce/pages/searchResult/searchResult.wxml-->
+<scroll-view scroll-y="true">
+  <view class='hmly-content-list'>
+    <block wx:for="{{searchShow}}" wx:key="item">
+    <view 
+      class="hmly-content" 
+      bindtap="toDetail" 
+      data-title="{{item.title}}"
+      data-id="{{item._id}}" 
+      >
+      <view class='hmly-content-img'>
+        <image src="{{item.imgUrl}}"  ></image>
+      </view>
+      <view class='hmly-content-right'>
+        <view class='hmly-content-title'><text>{{item.title}}</text></view>
+        <view class='price word_01'><text>{{item.price}}</text></view>
+        <view class='artist word_01'><text>艺人：{{item.artist}}</text></view>
+        <view class='date word_01'><text>时间: {{item.time}}</text></view>
+      </view>
+    </view>
+    </block>
+    </view>
+</scroll-view>

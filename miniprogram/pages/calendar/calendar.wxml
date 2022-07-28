@@ -1,0 +1,36 @@
+<picker class="time sty" mode="date"value="{{date}}" bindchange="bindDateChange" fields="month">
+    <view>
+        <text>{{date}} <text class="san">▼</text></text>
+    </view>
+</picker>
+<picker class="region sty" mode="region" bindchange="bindRegionChange">
+    <view>
+        <text>{{region}} <text class="san">▼</text></text>
+    </view>
+</picker>
+
+<van-switch class="switch" checked="{{ checked }}" bind:change="onChange" active-color="#3399ff"
+  inactive-color="rgba(224, 224, 224, 0.6)" size="25px"/>
+<view class="isall">显示整月</view>
+
+<van-calendar  default-date="{{default_date}}" poppable="{{ false }}" 
+show-confirm="{{ false }}" 
+class="calendar" 
+show-mark="{{false}}" 
+color="{{color}}" 
+formatter="{{ formatter }}"
+min-date="{{ minDate }}"
+max-date="{{ maxDate }}"
+bind:select="selectedday"
+/>
+<view class="components" wx:for="{{show_list}}" wx:key="_id">
+    <view class="component" data-id="{{item._id}}" bindtap="goDetail">
+        <image src="{{item.imgUrl}}"></image>
+        <view class="com_right">
+            <view class="title">{{item.title}}</view>
+            <view class="word_1">{{item.city}}</view>
+            <view class="word_1">{{item.artist}}</view>
+            <view class="word_1">{{item.time}}</view>
+        </view>
+    </view>
+</view>

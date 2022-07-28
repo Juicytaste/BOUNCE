@@ -1,0 +1,32 @@
+<view class="top">
+    <view class="word_0 disabletab" bindtap="gotohomepage">演出</view>
+    <view class="word_0 abletab" style="left: 110rpx;" bindtap="gotoArtist">音乐人</view>
+    <input disabled="true" type="text" placeholder="搜索" class="search" bindtap="gosearch"/>
+    <image class="position" src="../../images/position.png" bindtap="getCity"></image>
+    <text class="location-text" bindtap="showCityPicker">{{city}}</text>
+    <city-picker
+        id="city-picker"
+        value="{{cityPickerValue}}" 
+        isShow="{{cityPickerIsShow}}"
+        bindsureclick="cityPickerOnSureClick"
+        bindcancelclick="cityPickerOnCancelClick"/>
+</view>
+<view class="title_0">热门音乐人</view>
+<view class="title_1">按姓名首字母排序</view>
+<view class="hotartist">
+    <view class="con" wx:for="{{hotartist}}" wx:key="*this" data-id="{{item._id}}" bindtap="goDetail">
+        <image src="{{item.link}}" mode="scaleToFill"></image>
+        <view class="hotname">{{item.artist}}</view>
+    </view>
+</view>
+<view class="foot">
+    <van-index-bar index-list="{{ indexList }}" :sticky="false">
+    <view wx:for="{{artistList}}"  wx:key="artistId">
+        <van-index-anchor index="{{index}}"></van-index-anchor>
+        <van-cell wx:for="{{item}}" wx:key="index" data-id="{{item._id}}" bindtap="goDetail">
+            <image src="{{item.link}}" class="avatar" mode="scaleToFill"></image>
+            <view class="name">{{item.artist}}</view>
+        </van-cell>
+    </view>
+    </van-index-bar>
+</view>

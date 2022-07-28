@@ -1,0 +1,96 @@
+Page{
+    background-color: #ffffff;
+}
+.calendar {
+    --calendar-height: 390px;
+  }
+  .time{
+    float: left;
+    display: block;
+    margin-left: 40rpx;
+  }
+  .region{
+    margin-left: 40rpx;
+    float: left;
+    display: block;
+  }
+  .sty{
+    font-size: 30rpx;
+    font-weight: 800;
+    padding: 20rpx 40rpx;
+    margin-bottom: 50rpx;
+    margin-top: 30rpx;
+    border-radius: 45rpx;
+    box-shadow: 3px 3px 3px rgba(220, 220, 220) inset
+  }
+  .san{
+    color: rgba(224, 224, 224);
+    margin-left: 20rpx;
+  }
+  .van-calendar{
+    margin: 0rpx auto 0rpx;
+    width: 90%;
+  }
+  .van-calendar__weekdays{
+    border-top-right-radius: 25rpx;
+    border-top-left-radius: 25rpx;
+    background-color: rgba(224, 224, 224, 0.6);
+    border-bottom-style: none;
+  }
+  .van-calendar__body{
+    border-bottom-right-radius: 25rpx;
+    border-bottom-left-radius: 25rpx;
+    margin-bottom: 60rpx;
+    background-color: rgba(224, 224, 224, 0.6);
+  }
+  .components{
+    width:100%;
+  }
+  .component image{
+    width:30%;
+    float: left;
+    height: 270rpx;
+    border-radius: 30rpx;
+    margin-left: 25rpx;
+    margin-top: 10rpx;
+  }
+  .component{
+    background-color:#ffffff;
+    margin: 0rpx auto;
+    height: 320rpx;
+  }
+  .com_right{
+    font-family: "blod";
+    float:right;
+    margin-right: 10rpx;
+    margin-top: 30rpx;
+    font-size: 40rpx;
+    font-weight: 300;
+    width: 60%;
+  }
+  .word_1{
+    font-family: none;
+    color: grey;
+    font-size: 20rpx;
+    font-weight: 600;
+    margin-top: 23rpx;
+  }
+  @font-face {
+    font-family: "blod";
+    src: url('https://static.heytea.com/taro_trial/v1/font/WenYue-XinQingNianTi-NC-W8_1.otf');
+  }
+  .title{
+    font-size: 30rpx;
+  }
+  .isall{
+      position: absolute;
+      top: 100rpx;
+      right: 40rpx;
+      font-size: 20rpx;
+  }
+  .switch{
+    position:absolute;
+    top: 40rpx;
+    right: 30rpx;
+  }
+  

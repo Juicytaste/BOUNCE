@@ -1,0 +1,1 @@
+"D:\微信开发者工具\微信web开发者工具\cli.bat" cloud functions deploy --e lazydog-5gl0c2v7b4487266 --n quickstartFunctions --r --project "D:\桌面\bounce" --report_first --report

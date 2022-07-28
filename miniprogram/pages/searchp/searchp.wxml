@@ -1,0 +1,46 @@
+<!-- 搜索框 -->
+<view class="hmly-search">
+	<view class="hmly-search-left">
+		<input placeholder="搜索演出/音乐人" 
+		bindconfirm="search"
+		bindinput="getinput"
+		></input>
+		<text class="icon-search"></text>
+	</view>
+	<view class="hmly-search-right" bindtap="search">搜索</view>
+</view>
+<!-- 搜索历史 -->
+<view class="hmly-history" wx:if="{{searchHistory.length}}">
+	<!-- 提示标题 -->
+	<view class="hmly-title">
+		<view class="hmly-title-text">搜索历史</view>
+		<text class="icon-delete text-gray" 
+		bindtap="clearHistory"></text>
+	</view>
+	<!-- 内容 -->
+	<view class="hmly-history-content">
+		<view class="hmly-content-item bg-gray text-black" wx:for="{{searchHistory}}" wx:key="index">{{item}}</view>
+	</view>
+</view>
+<!-- 热门搜索 -->
+<view class="hmly-hot">
+	<!-- 提示标题 -->
+	<view class="hmly-title">
+		<view class="hmly-title-text">大家想看</view>
+	</view>
+	<view class="hmly-hot-content">
+	<block 		
+	wx:for="{{hotData}}" 
+	wx:key="item">
+		<view class="hmly-hot-items" 
+		bindtap="toDetail"
+		data-id="{{item._id}}"
+		data-title="{{item.title}}">
+			<view class="hmly-item-left">
+				<view>{{index + 1}}</view>
+				<view class="hmly-item-title text-black">{{item.title}}</view>
+			</view>
+		</view>
+	</block>
+	</view>
+</view>

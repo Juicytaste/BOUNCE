@@ -1,0 +1,41 @@
+<view class="word_0 abletab">演出</view>
+<view class="word_0 disabletab" style="left: 110rpx;" bindtap="gotoArtist">音乐人</view>
+<input disabled="true" type="text" placeholder="搜索" class="search" bindtap="gosearch"/>
+<image class="position" src="../../images/position.png" bindtap="getCity"></image>
+<text class="location-text" bindtap="showCityPicker">{{city}}</text>
+<city-picker
+    id="city-picker"
+    value="{{cityPickerValue}}" 
+    isShow="{{cityPickerIsShow}}"
+    bindsureclick="cityPickerOnSureClick"
+    bindcancelclick="cityPickerOnCancelClick"/>
+<swiper autoplay = "true" next-margin="190rpx" circular="true"
+class="image_group">
+    <block  wx:for="{{image_list}}"  wx:key="*this">
+        <swiper-item>
+        <view class='swiper_item'>
+            <image src="{{item.img}}" mode="scaleToFill"></image>
+        </view>
+        </swiper-item>
+    </block>
+ </swiper>
+ <view class="word_0" style="top: 430rpx;">精选演出</view>
+ <scroll-view scroll-x="true" class="wonderfulshows">
+    <view class="wonderfulshow" wx:for="{{wonderfulshow_list}}" wx:key="*this" data-id="{{item._id}}" bindtap="goDetail">
+        <image src="{{item.imgUrl}}" mode="scaleToFill"></image>
+        <view class="word_02">{{item.title}}</view>
+    </view>
+ </scroll-view>
+ <view class="word_0" style="top: 860rpx;">音乐演出</view>
+ <image class="rili" src="../../images/calendar.png" bindtap="gotocalendar"></image>
+<view class="components" wx:for="{{show_list}}" wx:key="_id">
+    <view class="component" data-id="{{item._id}}" bindtap="goDetail">
+        <image src="{{item.imgUrl}}"></image>
+        <view class="com_right">
+            <view class="title">{{item.title}}</view>
+            <view class="word_1">{{item.city}}</view>
+            <view class="word_1">{{item.livehouse}}</view>
+            <view class="word_1">{{item.time}}</view>
+        </view>
+    </view>
+</view>
