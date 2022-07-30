@@ -65,9 +65,9 @@ Page({
                     content:res.data.content
                 })
                 wx.cloud.callFunction({
-                    name:'fuzzySearch',
+                    name:'SearchArtist',
                     data:{
-                        keyword:res.data.artist
+                        _keyword:res.data.artist
                     }
                     }).then(result=>{
                         console.log(result)

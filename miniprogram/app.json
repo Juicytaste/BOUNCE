@@ -1,10 +1,10 @@
 {
   "pages": [
     "pages/login/login",
-    "pages/artist/artist",
+     "pages/artist/artist",
+    "pages/calendar/calendar",
     "pages/artistdetail/artistdetail",
     "pages/homepage/homepage",
-    "pages/calendar/calendar",
     "pages/searchResult/searchResult",
     "pages/goapp/goapp",
     "pages/searchp/searchp",

@@ -23,6 +23,7 @@ Page({
         })
         wx.cloud.database().collection('images').get()
         .then(res=>{//成功
+            console.log("imagessss",res)
             this.setData({
                 image_list:res.data
             })

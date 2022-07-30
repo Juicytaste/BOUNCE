@@ -4,6 +4,7 @@ let show_list = []
 var timestamp = Date.parse(new Date());
 var date = new Date(timestamp);
 var minDate,maxDate
+var maxYear,minYear,maxMonth,minMonth,maxDay,minDay
 Y = date.getFullYear();
 M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
 D = ''
@@ -21,13 +22,18 @@ Page({
         date:YM,
         region: ["广州市"],
         color:"#3399ff",
-        minDate: new Date(2022,4, 1).getTime(),
-        maxDate: new Date(2022,4, 31).getTime(),
+        minDate: '',
+        maxDate: '',
     },
         //处理时间格式
     onLoad(options) {
-      console.log(options)
-      if(options != undefined && options.flag == "1"){
+        let dateObj = new Date(Y,M,0);
+        let theMonthDay = dateObj.getDate();
+        this.setData({
+            minDate: new Date(Y, M-1, 1).getTime(),
+            maxDate: new Date(Y, M-1, theMonthDay).getTime(),
+        })
+        if(options != undefined && options.flag == "1"){
         Y = date.getFullYear()
         M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1)
         D = ''
