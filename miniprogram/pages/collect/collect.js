@@ -15,7 +15,6 @@ Page({
                     showlists.push(res.result.list[i].list[0])
                 }
                 if(res.result.list.length == 0 ){
-                    console.log(1111111)
                     this.setData({
                         display:"block"
                     })

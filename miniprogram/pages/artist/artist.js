@@ -12,6 +12,11 @@ Page({
         AlphabetList : ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"]
     },
     onLoad(options){
+        wx.showToast({
+            title: '加载中...',
+            icon: 'loading',
+            duration: 2500//持续的时间
+        })
         console.log(options.city)
         this.setData({
             city:options.city

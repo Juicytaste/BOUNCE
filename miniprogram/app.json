@@ -1,7 +1,7 @@
 {
   "pages": [
     "pages/login/login",
-     "pages/artist/artist",
+    "pages/artist/artist",
     "pages/calendar/calendar",
     "pages/artistdetail/artistdetail",
     "pages/homepage/homepage",

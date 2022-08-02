@@ -93,4 +93,11 @@ Page{
     top: 40rpx;
     right: 30rpx;
   }
+  .none{
+    position: absolute;
+    top: 50%;
+    left: 8%;
+    height: 600rpx;
+    width: 600rpx;
+}
   

@@ -12,6 +12,23 @@ Page({
         cityPickerIsShow: false,
     },
     onLoad(options){
+        var that = this
+        wx.showModal({
+            title: '欢迎来到BOUNCE！',
+            content: '关注你喜爱的音乐人后，可以及时获得该音乐人的演出及开票通知推送，不错过喜欢的演出！',
+            confirmText: '前往关注',
+            cancelText:'不想关注',
+            success (res) {
+                if (res.confirm) {
+                    console.log('用户点击')
+                    wx.navigateTo({
+                        url: '/pages/artist/artist?city=' + that.data.city
+                    })
+                } else if (res.cancel) {
+                    console.log('用户点击取消')
+                }
+            }
+        })   
         db.collection('Shows').where({
             city:this.data.city,
         }).get()
@@ -59,7 +76,6 @@ Page({
         })
     },
     gotoArtist(e){
-        console.log(e)
         wx.navigateTo({
             url: '/pages/artist/artist?city=' + this.data.city
           })

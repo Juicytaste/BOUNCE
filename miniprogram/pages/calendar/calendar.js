@@ -24,6 +24,7 @@ Page({
         color:"#3399ff",
         minDate: '',
         maxDate: '',
+        display:"none",
     },
         //处理时间格式
     onLoad(options) {
@@ -53,10 +54,19 @@ Page({
             })
         }).get()
         .then(res => {
-            console.log(res.data)
-            this.setData({
-                show_list:res.data
-            })
+            // console.log(res.data.length)
+            if(res.data.length == 0 ){
+                this.setData({
+                    show_list:res.data,
+                    display:"block"
+                })
+            }
+            else {
+                this.setData({
+                    show_list:res.data,
+                    display:"none"
+                })
+            }
         })
     },
     bindDateChange: function(e) {

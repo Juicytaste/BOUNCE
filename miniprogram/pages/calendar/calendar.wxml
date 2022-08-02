@@ -34,3 +34,4 @@ bind:select="selectedday"
         </view>
     </view>
 </view>
+<image src="https://s1.328888.xyz/2022/08/02/FvUSX.png" mode="scaleToFill" class="none" style="display: {{display}};"></image>
