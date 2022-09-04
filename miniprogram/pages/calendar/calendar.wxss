@@ -95,9 +95,9 @@ Page{
   }
   .none{
     position: absolute;
-    top: 50%;
-    left: 8%;
-    height: 600rpx;
-    width: 600rpx;
+    top: 65%;
+    left: 25%;
+    height: 400rpx;
+    width: 400rpx;
 }
   

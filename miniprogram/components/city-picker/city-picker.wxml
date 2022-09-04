@@ -14,12 +14,12 @@
         <view class="city-picker-content-center" catchtouchstart="onTouchmask">
             <picker-view class="city-picker-content-item" indicator-style="height: 70rpx;" value="{{tempProvincePos}}" bindchange="province_onChange">
                 <picker-view-column>
-                    <view wx:for="{{provinces}}" wx:key="{{item.province_code}}" style="height: 70rpx; text-align:center; font-size: 36rpx; line-height:70rpx; color:#353535;">{{item.province_name}}</view>
+                    <view wx:for="{{provinces}}" wx:key="province_code" style="height: 70rpx; text-align:center; font-size: 36rpx; line-height:70rpx; color:#353535;">{{item.province_name}}</view>
                 </picker-view-column>
             </picker-view>
             <picker-view class="city-picker-content-item" indicator-style="height: 70rpx; " value="{{tempCityPos}}" bindchange="city_onChange">
                 <picker-view-column>
-                    <view wx:for="{{provinces[tempProvincePos].city_list}}" wx:key="{{item.city_code}}" style="height: 70rpx; text-align:center;  font-size: 36rpx; line-height:70rpx; color:#353535;">{{item.city_name}}</view>
+                    <view wx:for="{{provinces[tempProvincePos].city_list}}" wx:key="city_code" style="height: 70rpx; text-align:center;  font-size: 36rpx; line-height:70rpx; color:#353535;">{{item.city_name}}</view>
                 </picker-view-column>
             </picker-view>
         </view>

@@ -4,7 +4,7 @@ import CustomHook from 'spa-custom-hooks';
 //globalData提出来声明
 let globalData = {
   userInfo: {
-    userId: '',
+    userId:'',
     avatarUrl:'',
     nickName:''
   }
@@ -31,6 +31,32 @@ App({
             traceUser:true
         });
       }
+      wx.cloud.getTempFileURL({
+        fileList:["cloud://lazydog-5gl0c2v7b448-7bh22424848.6c61-lazydog-5gl0c2v7b448-7bh22424848-1308402135/WenYue-XinQingNianTi-NC-W8_1.ttf"],
+        success:res=>{
+        //   console.log(res.fileList[0].tempFileURL)
+          let url = res.fileList[0].tempFileURL
+          wx.loadFontFace({
+            global:true,
+            family: 'blod',// 自定义字体名
+            source: 'url("' + url + '")',
+            desc: {
+              style: 'normal',
+              weight: 'normal',
+              variant: 'normal'
+            },
+            success: (result) => {
+              console.log("成功调用字体")
+            },
+            fail: () => {
+              console.log("失败调用字体")
+            },
+            complete: () => {}
+          });
+            
+        },
+        fail:console.error
+      })
       wx.cloud.callFunction({
         name: 'get_openId',
         success: res => {
@@ -41,6 +67,6 @@ App({
         },1000)
       }
     })
-   }
+   },
 })
 

@@ -62,18 +62,18 @@ Page{
 .title_1{
     background-color: white;
     position: absolute;
-    width: 100%;
+    width: 80%;
     top: 500rpx;
-    padding-left: 30rpx;
+    margin-left: 30rpx;
     font-size: 35rpx;
     font-weight: 700;
 }
 .title_0{
     background-color: white;
     position: absolute;
-    width: 100%;
+    width: 80%;
     top: 100rpx;
-    padding-left: 30rpx;
+    margin-left: 30rpx;
     font-size: 35rpx;
     font-weight: 700;
 }
@@ -105,4 +105,13 @@ Page{
 }
 .foot{
     margin-top: 550rpx;
+}
+.van-index-bar__index{
+    margin-right:10rpx;
+    width: 50rpx;
+    
+}
+.van-index-bar__sidebar{
+    font-size: 60rpx;
+    margin-top:80rpx;
 }

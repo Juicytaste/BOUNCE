@@ -1,0 +1,47 @@
+<!--miniprogram-bounce/pages/dongtai/dongtai.wxml-->
+<!-- 搜索框 --> 
+<view class="hmly-search">
+	<view class="hmly-search-left">
+		<input placeholder="搜索音乐人" 
+		bindconfirm="search"
+		bindinput="getinput"
+		></input>
+		<text class="icon-search"></text>
+	</view>
+	<view class="hmly-search-right" bindtap="search">搜索</view>
+</view>
+<view class="hmly-like">
+		<view class="hmly-bar-title">
+			<view class="hmly-title-left">我的关注</view>
+		</view>
+  <view class="hmly-like-item-box" style="white-space:nowrap">
+    <scroll-view scroll-x>
+        <view 
+          class="hmly-like-item" 
+          style="display: inline-block" 
+          wx:for="{{followartist}}"
+          wx:key="item"
+          data-artist="{{item.artist}}"
+          data-id="{{item._id}}" 
+          bindtap="goArtist">
+          <view class="hmly-like-img">
+            <image class="hmly-like-item-icon" src="{{item.link}}" mode="scaleToFill"></image>
+          </view>
+          <view class="hmly-like-text">{{item.artist}}</view>
+        </view>
+      </scroll-view>
+  </view>
+</view>
+<view class="artist_dongtai">艺人动态</view>
+<scroll-view scroll-y="true" style="width: 90%;margin:40rpx auto">
+    <view class="followitem" wx:for="{{followitem}}" wx:key="item">
+        <image class="profilepic" src="{{item.profilepic}}" data-id="{{item._id}}" bindtap="goArtist"></image>
+        <view class="artist">{{item.artist}}</view>
+        <view class="content" wx:for="{{item.moments}}" wx:for-item="momentsitem" wx:key="momentsitem">
+            <view class="title">{{momentsitem.title}}</view>
+            <image class="image" data-id="{{momentsitem._id}}" bindtap="goShow" src="{{momentsitem.imgUrl}}"></image>
+            <view class="title place">{{momentsitem.place}}</view>
+            <view class="title time">{{momentsitem.time}}</view>
+        </view>
+    </view>
+</scroll-view>

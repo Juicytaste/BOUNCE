@@ -28,10 +28,6 @@ Page{
     background-color: rgba(224, 224, 224, 0.8);
 
 }
-@font-face {
-    font-family: "blod";
-    src: url('https://static.heytea.com/taro_trial/v1/font/WenYue-XinQingNianTi-NC-W8_1.otf');
-}
 .title{
     font-size: 30rpx;
 }
@@ -129,8 +125,15 @@ Page{
 }
 .location-text{
     position: absolute;
-    right: 34rpx;
-    top:30rpx;
-    font-size: 35rpx;
+    /* background-color: black; */
+    right: 30rpx;
+    top:33rpx;
+    width: 90rpx;
+    height: 50rpx;
+    font-size: 30rpx;
+    text-align: center;
     font-weight: 700;
+    overflow:hidden;
+    white-space:nowrap;
+    text-overflow:ellipsis;
 }

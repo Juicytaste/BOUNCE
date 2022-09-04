@@ -35,14 +35,9 @@
 	margin-top: 10rpx;
 	margin-left: 30rpx;
 }
-.icon-search:before {
+/* .icon-search:before {
 	background-image: "/miniprogram-bounce/static/searchicon.png";
-}
-/* 
-  ======== 
-  搜索历史和热门搜索部分css 
-  ========
-*/
+} */
 .hmly-title {
 	width: 100%;
 	height: 50rpx;

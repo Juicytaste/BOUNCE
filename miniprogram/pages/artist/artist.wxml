@@ -19,7 +19,7 @@
         <view class="hotname">{{item.artist}}</view>
     </view>
 </view>
-<view class="foot">
+<view class="foot" style="overflow: hidden;">
     <van-index-bar index-list="{{ indexList }}" :sticky="false">
     <view wx:for="{{artistList}}"  wx:key="artistId">
         <van-index-anchor index="{{index}}"></van-index-anchor>

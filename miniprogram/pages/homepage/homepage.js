@@ -1,4 +1,5 @@
 const db = wx.cloud.database()
+var once = 1;
 var QQMapWX = require('../../utils/qqmap-wx-jssdk');
 Page({
     data:{
@@ -11,7 +12,7 @@ Page({
         cityPickerValue: [0, 0],
         cityPickerIsShow: false,
     },
-    onLoad(options){
+    notification_likes(){
         var that = this
         wx.showModal({
             title: '欢迎来到BOUNCE！',
@@ -29,6 +30,30 @@ Page({
                 }
             }
         })   
+    },
+    async notification_city(){
+        var that = this
+        wx.showModal({
+            title: 'BOUNCE',
+            content: '点击下方按钮\r挑选您喜欢的城市',
+            confirmText: '当前城市',
+            cancelText:'其他城市',
+            success (res) {
+                if (res.confirm) {
+                    that.getCity();
+                } else if (res.cancel) {
+                    that.showCityPicker();
+                }
+            }
+        })
+        await this.notification_likes()
+    },
+    onLoad(options){
+        var that = this
+        if(once) {
+            once = 0;
+            that.notification_city();
+        }
         db.collection('Shows').where({
             city:this.data.city,
         }).get()

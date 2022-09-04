@@ -1,0 +1,22 @@
+<!--miniprogram-bounce/pages/artistResult/artistResult.wxml-->
+<scroll-view scroll-y="true">
+  <view class='hmly-content-list'>
+    <block wx:for="{{artistResult}}" wx:key="item">
+    <view 
+      class="hmly-content" 
+      data-title="{{item.artist}}"
+      data-id="{{item._id}}"
+      bindtap="goDetail"
+      >
+      <view class='hmly-content-img'>
+        <image src="{{item.link}}" mode="scaleToFill"></image>
+      </view>
+      <view class='hmly-content-right'>
+        <view class='artist'>{{item.artist}}</view>
+        <view class='style'>{{item.style}}</view>
+        <view class='content'>{{item.content}}</view>
+      </view>
+    </view>
+    </block>
+    </view>
+</scroll-view>

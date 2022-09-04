@@ -1,6 +1,15 @@
 page{
     background-color: white;
 }
+.artists{
+    text-overflow: -o-ellipsis-lastline;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 7;
+    -webkit-box-orient: vertical;
+    align-content: center;
+}
 .top{
     /* background-color: pink; */
     height: 350rpx;

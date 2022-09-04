@@ -67,7 +67,8 @@ Page({
                 wx.cloud.callFunction({
                     name:'SearchArtist',
                     data:{
-                        _keyword:res.data.artist
+                        _keyword:res.data.artist,
+                        dbName:'Shows'
                     }
                     }).then(result=>{
                         console.log(result)

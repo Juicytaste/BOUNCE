@@ -26,11 +26,10 @@ image{
 .com_right{
     font-family: "blod";
     float:right;
-    margin-right: 10rpx;
-    margin-top: 30rpx;
+    margin-right: 70rpx;
     font-size: 40rpx;
     font-weight: 300;
-    width: 60%;
+    width: 50%;
 }
 .word_1{
     font-family: none;

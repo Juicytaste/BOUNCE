@@ -35,7 +35,7 @@
                 <view class="com_right">
                     <view class="title">{{item.name}}</view>
                     <view class="word_1">{{item.place}}</view>
-                    <view class="word_1">艺人：{{item.artist}}</view>
+                    <view class="word_1 artists">艺人：{{item.artist}}</view>
                     <view class="word_1">{{item.time}}</view>
                 </view>
             </view>

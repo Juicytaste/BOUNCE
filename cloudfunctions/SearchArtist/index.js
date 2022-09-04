@@ -10,7 +10,8 @@ const db=cloud.database();
 // 云函数入口函数
 exports.main = async (event, context) => {
     let keyWords = event._keyword
-    return db.collection('Shows').where(
+    let dbName = event.dbName;
+    return db.collection(dbName).where(
         db.command.or([{
             artist: db.RegExp({
               regexp: keyWords,
