@@ -92,7 +92,7 @@ Page({
 		})
   },
     getArtist(){
-        let map = new Map();
+        // let map = new Map();
         var that = this;//把this对象复制到临时变量that，解决作用域不够的问题
 		api.find("User_artist",{_openid:getApp().globalData.userInfo.userId}).then(res=>{
             if(res.data) {
@@ -132,11 +132,11 @@ Page({
                                     ['followitem['+ artistnum +']._id']:temp[0]._id,
                                 })
                                 for(var j=0;j<dlength;j++) {
-                                    if(map.has(d[j]._id)) { // 如果有该key值
-                                        continue;
-                                    }
-                                    else{
-                                        map.set(d[j]._id,j)
+                                    // if(map.has(d[j]._id)) { // 如果有该key值
+                                    //     continue;
+                                    // }
+                                    // else{
+                                        // map.set(d[j]._id,j)
                                         that.setData({
                                             ['followitem['+ artistnum +'].moments[' + j +'].imgUrl']:d[j].imgUrl,
                                             ['followitem['+ artistnum +'].moments[' + j +'].title']:d[j].title,
@@ -144,7 +144,7 @@ Page({
                                             ['followitem['+ artistnum +'].moments[' + j +'].time']:d[j].time,
                                             ['followitem['+ artistnum +'].moments[' + j +']._id']:d[j]._id,
                                         })
-                                    }
+                                    // }
                                 }
                                 artistnum++;
                             }

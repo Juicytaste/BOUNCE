@@ -37,7 +37,7 @@
     <view class="followitem" wx:for="{{followitem}}" wx:key="item">
         <image class="profilepic" src="{{item.profilepic}}" data-id="{{item._id}}" bindtap="goArtist"></image>
         <view class="artist">{{item.artist}}</view>
-        <view class="content" wx:for="{{item.moments}}" wx:for-item="momentsitem" wx:key="momentsitem">
+        <view class="content" wx:if="{{item.moments != empty}}" wx:for="{{item.moments}}" wx:for-item="momentsitem" wx:key="momentsitem">
             <view class="title">{{momentsitem.title}}</view>
             <image class="image" data-id="{{momentsitem._id}}" bindtap="goShow" src="{{momentsitem.imgUrl}}"></image>
             <view class="title place">{{momentsitem.place}}</view>
