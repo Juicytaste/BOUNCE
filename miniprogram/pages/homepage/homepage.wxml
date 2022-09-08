@@ -1,6 +1,6 @@
 <view class="word_0 abletab">演出</view>
 <view class="word_0 disabletab" style="left: 110rpx;" bindtap="gotoArtist">音乐人</view>
-<input disabled="true" type="text" placeholder="搜索" class="search" bindtap="gosearch"/>
+<input disabled="true" type="text" placeholder="点击搜索演出" class="search" bindtap="gosearch"/>
 <image class="position" src="../../images/position.png" bindtap="getCity"></image>
 <text class="location-text" bindtap="showCityPicker">{{city}}</text>
 <city-picker
@@ -10,7 +10,7 @@
     bindsureclick="cityPickerOnSureClick"
     bindcancelclick="cityPickerOnCancelClick"/>
 <swiper autoplay = "true" next-margin="190rpx" circular="true"
-class="image_group">
+class="image_group" interval="2500">
     <block  wx:for="{{image_list}}"  wx:key="*this">
         <swiper-item>
         <view class='swiper_item'>

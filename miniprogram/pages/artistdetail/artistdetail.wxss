@@ -11,7 +11,6 @@ page{
     align-content: center;
 }
 .top{
-    /* background-color: pink; */
     height: 350rpx;
     width: 100%;
 }

@@ -28,7 +28,7 @@
     </swiper-item>
     <swiper-item>
       <view class="style-roll">
-        <image src="https://s3.bmp.ovh/imgs/2022/05/21/5f02ffe6b2233316.png" mode="scaleToFill" class="none" style="display: {{display}};"></image>
+        <image src="https://s1.328888.xyz/2022/09/06/5Fl10.png" mode="scaleToFill" class="none" style="display: {{display}};"></image>
         <view wx:for="{{show_list}}" style="margin: 0rpx;" wx:key="*this">
             <view class="component" bindtap="goDetail" data-id="{{item._id}}">
                 <image src="{{item.imgUrl}}" mode="scaleToFill"></image>

@@ -11,6 +11,8 @@ Page({
         success: res => {console.log(res)
           app.globalData.userInfo.avatarUrl = res.data[0].avatarUrl
           app.globalData.userInfo.nickName = res.data[0].nickName
+          app.globalData.userInfo.once = res.data[0].once
+          app.globalData.userInfo.city = res.data[0].city
           if(res.data[0]){
             wx.switchTab({
               url: '/pages/homepage/homepage',
@@ -31,7 +33,9 @@ Page({
               wx.cloud.database().collection('UserProfile').add({
                 data: {
                   avatarUrl: res.userInfo.avatarUrl,
-                  nickName: res.userInfo.nickName
+                  nickName: res.userInfo.nickName,
+                  once:true,
+                  city:'广州'
                 },
                 success: result => {
                   app.globalData.userInfo.avatarUrl = res.userInfo.avatarUrl

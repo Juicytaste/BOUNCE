@@ -11,5 +11,5 @@
     </view>
 </view>
 <view>
-<button style="background-color: green;color: white;" bindtap="GetPermission">点击订阅</button>
+<!-- <button style="background-color: green;color: white;" bindtap="GetPermission">点击订阅</button> -->
 </view>

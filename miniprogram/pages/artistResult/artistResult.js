@@ -10,7 +10,6 @@ Page({
         that.setData({
           artistResult: artistResult
         })
-        // console.log(this.data.artistResult)
       },
       goDetail(e){
         wx.navigateTo({

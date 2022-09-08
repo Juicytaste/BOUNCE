@@ -61,8 +61,8 @@
 }
 
 .hmly-like-item {
-    margin-right: 20rpx;
-	width: 210rpx;
+    margin-right: 15rpx;
+	width: 160rpx;
 	height: 280rpx;
 }
 
@@ -70,8 +70,8 @@
     margin-top: 50rpx;
     margin-left: auto;
     margin-right: auto;
-	width: 160rpx;
-	height: 160rpx;
+	width: 100rpx;
+	height: 100rpx;
 }
 
 .hmly-like-item-icon {
@@ -122,9 +122,9 @@
 }
 .profilepic{
     float: left;
-    width: 120rpx;
-    height: 120rpx;
-    border-radius: 20rpx;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
 }
 .content{
     height: 1200rpx;

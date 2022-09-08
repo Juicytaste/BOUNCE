@@ -6,7 +6,9 @@ let globalData = {
   userInfo: {
     userId:'',
     avatarUrl:'',
-    nickName:''
+    nickName:'',
+    once:true,
+    city:''
   }
 }
 CustomHook.install({

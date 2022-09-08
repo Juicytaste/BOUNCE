@@ -1,5 +1,4 @@
 const db = wx.cloud.database()
-var once = 1;
 var QQMapWX = require('../../utils/qqmap-wx-jssdk');
 Page({
     data:{
@@ -8,9 +7,10 @@ Page({
         show_nums:0,
         image_list:[],
         wonderfulshow_list:[],
-        city: '北京', //默认北京市
+        city:getApp().globalData.userInfo.city,
         cityPickerValue: [0, 0],
         cityPickerIsShow: false,
+        once:true
     },
     notification_likes(){
         var that = this
@@ -22,8 +22,15 @@ Page({
             success (res) {
                 if (res.confirm) {
                     console.log('用户点击')
+                    wx.cloud.database().collection('UserProfile').where({
+                        _openid:getApp().globalData.userInfo.userId
+                    }).update({
+                        data:{
+                            once:false
+                        }
+                    })
                     wx.navigateTo({
-                        url: '/pages/artist/artist?city=' + that.data.city
+                        url: '/pages/artist/artist'
                     })
                 } else if (res.cancel) {
                     console.log('用户点击取消')
@@ -31,7 +38,7 @@ Page({
             }
         })   
     },
-    async notification_city(){
+    notification_city(){
         var that = this
         wx.showModal({
             title: 'BOUNCE',
@@ -46,22 +53,43 @@ Page({
                 }
             }
         })
-        await this.notification_likes()
     },
-    onLoad(options){
-        var that = this
-        if(once) {
-            once = 0;
-            that.notification_city();
-        }
+    onShow:function(){
+        wx.cloud.database().collection('UserProfile').where({
+            _openid: getApp().globalData.userInfo.userId
+          }).get({
+            success: res => {
+                if(res.data[0].once) {
+                    this.setData({
+                        once:res.data[0].once
+                    })
+                    this.notification_city();
+                    this.notification_likes();
+                }
+            }
+        })
+        this.setData({
+            city:getApp().globalData.userInfo.city
+        })
         db.collection('Shows').where({
-            city:this.data.city,
+            city:getApp().globalData.userInfo.city
         }).get()
         .then(res => {
-            console.log(res.data)
             this.setData({
                 show_list:res.data
             })
+        })
+    },
+    onLoad(options){
+        db.collection('Shows').where({
+            city:this.data.city
+        }).get()
+        .then(res => {
+            if(res.data[0]) {
+                this.setData({
+                    show_list:res.data
+                })
+            }
         })
         wx.cloud.database().collection('images').get()
         .then(res=>{//成功
@@ -141,12 +169,21 @@ Page({
      * 城市选择确认
      */
     cityPickerOnSureClick: function (e) {
+        var that = this
         this.setData({
           city: e.detail.valueName[1],
           cityPickerValue: e.detail.valueCode,
           cityPickerIsShow: false,
         });
         this.onLoad();
+        wx.cloud.database().collection('UserProfile').where({
+            _openid:getApp().globalData.userInfo.userId
+        }).update({
+            data:{
+                city:that.data.city,
+                once:false
+            }
+        })
       },
       /**
        * 城市选择取消
@@ -187,7 +224,14 @@ Page({
                   region: [addressRes.result.address_component.province,addressRes.result.address_component.city]
                 })
                 that.onLoad()
-                console.log(addressRes)  
+                wx.cloud.database().collection('UserProfile').where({
+                    _openid:getApp().globalData.userInfo.userId
+                }).update({
+                    data:{
+                        city:that.data.city,
+                        once:false
+                    }
+                }) 
               },
               fail: function (error) {
                 console.error(error);

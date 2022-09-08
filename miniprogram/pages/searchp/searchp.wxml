@@ -1,7 +1,7 @@
 <!-- 搜索框 -->
 <view class="hmly-search">
 	<view class="hmly-search-left">
-		<input placeholder="搜索演出/音乐人" 
+		<input placeholder="搜索演出" 
 		bindconfirm="search"
 		bindinput="getinput"
 		></input>

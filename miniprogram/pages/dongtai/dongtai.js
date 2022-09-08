@@ -79,7 +79,7 @@ Page({
                 }
                 else{
                     wx.showToast({
-                        title: '没有找到',
+                        title: '抱歉，没有找到相关音乐人哦~',
                         icon:"none"
                     })
                 }
@@ -90,7 +90,7 @@ Page({
 		this.setData({
 			content:event.detail.value
 		})
-  },
+    },
     getArtist(){
         // let map = new Map();
         var that = this;//把this对象复制到临时变量that，解决作用域不够的问题

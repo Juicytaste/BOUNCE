@@ -60,7 +60,7 @@ Page({
 			}
 		}).then(res=>{
             console.log("res",res)
-            if(res.result != null){
+            if(res.result.data.length != 0){
                 this.setData({
                     showinfo:res.result.data
                 })
@@ -71,7 +71,7 @@ Page({
             }
             else{
                 wx.showToast({
-                    title: '没有找到',
+                    title: '抱歉，没有找到相关音乐演出哦~',
                     icon:"none"
                   })
             }

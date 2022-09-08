@@ -18,9 +18,9 @@ Page{
 }
 .search{
     position: absolute;
-    top:33rpx;
+    top:28rpx;
     left: 235rpx;
-    height: 35rpx;
+    height: 50rpx;
     text-align: center;
     font-size: 28rpx;
     width: 45%;

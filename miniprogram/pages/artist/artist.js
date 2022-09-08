@@ -3,9 +3,6 @@ var QQMapWX = require('../../utils/qqmap-wx-jssdk');
 Page({
     data:{
         hotartist:[],
-        cityPickerValue: [0, 0],
-        cityPickerIsShow: false,
-        city: '', 
         indexList:[],
         artistId:[],
         artistList:{},
@@ -16,10 +13,6 @@ Page({
             title: '加载中...',
             icon: 'loading',
             duration: 2500//持续的时间
-        })
-        console.log(options.city)
-        this.setData({
-            city:options.city
         })
         wx.cloud.callFunction({
             name: 'get_artist',
@@ -62,70 +55,43 @@ Page({
             }
             })
     },
+    search(){
+		let artist =this.data.content;
+		//调用云函数
+		wx.cloud.callFunction({
+                name:'SearchArtist',
+                data:{
+                    _keyword:artist,
+                    dbName:'Artist'
+                }
+            }).then(res=>{
+                console.log(res)
+                if(res.result.data.length>0){
+                    this.setData({
+                        artistSearch:res.result.data
+                    })
+                    let str = JSON.stringify(this.data.artistSearch);
+                    wx.navigateTo({
+                    url: '/pages/artistResult/artistResult?data='+encodeURIComponent(str),
+                    })
+                }
+                else{
+                    wx.showToast({
+                        title: '抱歉，没有找到相关音乐人哦~',
+                        icon:"none"
+                    })
+                }
+        })
+	},
+	//获取文本框的文本值 
+	getinput(event){
+		this.setData({
+			content:event.detail.value
+		})
+    },
     clickletter(Event){
         console.log(Event)
     },
-    gosearch(e){
-        wx.navigateTo({
-            url: '/pages/searchp/searchp'
-          })
-    },
-    cityPickerOnSureClick: function (e) {
-        this.setData({
-          city: e.detail.valueName[1],
-          cityPickerValue: e.detail.valueCode,
-          cityPickerIsShow: false,
-        });
-        this.onLoad();
-      },
-      /**
-       * 城市选择取消
-       */
-    cityPickerOnCancelClick: function (event) {
-        this.setData({
-            cityPickerIsShow: false,
-        });
-    },
-    showCityPicker() {
-        this.setData({
-            cityPickerIsShow: true,
-        });
-    },
-    getCity: function(e) {
-        wx.showLoading({
-            title: '正在定位中',
-            duration:1500
-          })
-        var that=this;
-        var qqmapsdk; 
-        qqmapsdk = new QQMapWX({
-          key: '6ALBZ-TXKWU-F4FVR-2QRFY-ADW4V-O7FM6'
-        });
-        wx.getLocation({
-          type: 'wgs84',
-          success: function (res) {
-            //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
-            qqmapsdk.reverseGeocoder({
-              location: {
-                latitude: res.latitude,
-                longitude: res.longitude
-              },
-              success: function (addressRes) {
-                let cs =String(addressRes.result.address_component.city);
-                that.setData({
-                  city:cs.replace('市',''),
-                  region: [addressRes.result.address_component.province,addressRes.result.address_component.city]
-                })
-                that.onLoad()
-                console.log(addressRes)  
-              },
-              fail: function (error) {
-                console.error(error);
-              },
-            })
-          }
-        })
-      },
       gotohomepage(e){
         wx.switchTab({
             url: '/pages/homepage/homepage'
