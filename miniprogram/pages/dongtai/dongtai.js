@@ -95,6 +95,7 @@ Page({
         // let map = new Map();
         var that = this;//把this对象复制到临时变量that，解决作用域不够的问题
 		api.find("User_artist",{_openid:getApp().globalData.userInfo.userId}).then(res=>{
+            console.log(res)
             if(res.data) {
                 this.setData({
                     followlength:res.data.length

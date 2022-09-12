@@ -1,4 +1,5 @@
 let iscollect = false
+let butsty = ''
 let id
 let urllist = []
 let mddp,xddp,dmdp
@@ -11,29 +12,35 @@ Page({
         name:'',
         time:'',
         city:'',
-        color:false,
+        color:'',
         display:"none"
     },
     onLoad(options){
-        id = options.id
+        if(options != undefined) id = options.id
+        this.getInformation()
+    },
+    onShow:function(){
+        this.setData({
+            color:butsty
+        })
+        console.log(this.data.color)
+    },
+    getInformation(){
         wx.cloud.database().collection('User_collect').where({
             _openid:app.globalData.userInfo.userId,
             collectid:id
-          }).get({
-              success:res=>{
-                if(res.data[0] == undefined){
-                    console.log("未收藏")
-                    this.setData({
-                        color:false
-                      })
-                }else{
-                    console.log("已收藏")
-                    this.setData({
-                        color:true
-                      })
-                }
-              }
-          })
+        }).get()
+        .then(res=>{
+            if(res.data[0] == undefined){
+                console.log("未收藏")
+                butsty = false
+                this.onShow()
+            }else{
+                console.log("已收藏")
+                butsty = true
+                this.onShow()
+            }
+        })
         urllist = []
         //从首页点进来获取id来得到详情页面信息
         wx.cloud.database().collection('Shows')
@@ -71,6 +78,7 @@ Page({
                 xddp:xddp,
                 dmdp:dmdp
             })
+            this.onShow()
         })
         .catch(err=>{
             console.log('失败',err)

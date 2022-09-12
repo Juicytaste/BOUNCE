@@ -8,7 +8,7 @@ let globalData = {
     avatarUrl:'',
     nickName:'',
     once:true,
-    city:''
+    city:'广州'
   }
 }
 CustomHook.install({
