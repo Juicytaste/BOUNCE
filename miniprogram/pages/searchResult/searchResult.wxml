@@ -13,7 +13,7 @@
       </view>
       <view class='hmly-content-right'>
         <view class='hmly-content-title'><text>{{item.title}}</text></view>
-        <view class='price word_01'><text>{{item.price}}</text></view>
+        <view class='price word_01'><text>价格：￥{{item.price}}</text></view>
         <view class='artist word_01'><text>艺人：{{item.artist}}</text></view>
         <view class='date word_01'><text>时间: {{item.time}}</text></view>
       </view>

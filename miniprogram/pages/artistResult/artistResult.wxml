@@ -8,10 +8,8 @@
       data-id="{{item._id}}"
       bindtap="goDetail"
       >
-      <view class='hmly-content-img'>
-        <image src="{{item.link}}" mode="scaleToFill"></image>
-      </view>
-      <view class='hmly-content-right'>
+    <image src="{{item.link}}" mode="scaleToFill" style="width: 250rpx;" class='hmly-content-img'></image>
+    <view class='hmly-content-right'>
         <view class='artist'>{{item.artist}}</view>
         <view class='style'>{{item.style}}</view>
         <view class='content'>{{item.content}}</view>

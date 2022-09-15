@@ -13,7 +13,6 @@ Page({
         once:true
     },
     notification_likes(){
-        var that = this
         wx.showModal({
             title: '欢迎来到BOUNCE！',
             content: '关注你喜爱的音乐人后，可以及时获得该音乐人的演出及开票通知推送，不错过喜欢的演出！',
@@ -67,9 +66,6 @@ Page({
                     this.notification_likes();
                 }
             }
-        })
-        this.setData({
-            city:getApp().globalData.userInfo.city
         })
         db.collection('Shows').where({
             city:getApp().globalData.userInfo.city

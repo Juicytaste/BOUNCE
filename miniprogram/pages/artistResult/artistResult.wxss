@@ -15,40 +15,47 @@
 }
 
 .hmly-content-img {
-	width: 300rpx;
-	height: 250rpx;
-	border-radius: 25rpx;
+    float: left;
+	width: 270rpx;
+	height: 330rpx;
+    border-radius: 25rpx;
 }
 
-.hmly-content-img>image {
-	width: 100%;
-	height: 100%;
-	border-radius: 15rpx;
-}
 
 .hmly-content-right {
+    margin-left: 40rpx;
 	width: 530rpx;
-    height: 100%;
-	display: flex;
-	flex-direction: column;
+    float: right;
 }
 .artist{
-    font-size: 40rpx;
+    font-size: 35rpx;
     font-weight: 600;
-	margin-left: 20rpx;
+    margin-left: 20rpx;
+    margin-top: 17rpx;
 }
 .style{
+    float: left;
+    width: 150rpx;
+    background-color: black;
+    color: white;
+    border-radius: 25rpx;
+    font-size: 25rpx;
+    line-height: 40rpx;
     margin-top: 35rpx;
-    margin-left: 20rpx;
+    margin-left: 25rpx;
+    margin-bottom: 20rpx;
+    text-align: center;
 }
 .content{
+    width: 85%;
     margin-left: 20rpx;
     margin-top: 5rpx;
     text-overflow: -o-ellipsis-lastline;
     overflow: hidden;
     text-overflow: ellipsis;
     display: -webkit-box;
-    -webkit-line-clamp: 3;
+    -webkit-line-clamp: 5;
     -webkit-box-orient: vertical;
     align-content: center;
+    font-size: 25rpx;
 }

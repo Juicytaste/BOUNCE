@@ -3,6 +3,7 @@ const api = require("../../api/api");
 let artistnum = 0;
 Page({
     data: {
+        display:'none',
         artistSearch:[],
         content:"",
         follow:[],
@@ -92,7 +93,6 @@ Page({
 		})
     },
     getArtist(){
-        // let map = new Map();
         var that = this;//把this对象复制到临时变量that，解决作用域不够的问题
 		api.find("User_artist",{_openid:getApp().globalData.userInfo.userId}).then(res=>{
             console.log(res)
@@ -109,6 +109,9 @@ Page({
                 })
             }
             if(that.data.followlength > 0){
+                this.setData({
+                    display:'block'
+                })
                 for(var i=0;i<that.data.followlength;i++){
                     api.find("Artist",{_id:that.data.follow[i]}).then(res=>{
                         let temp = res.data
@@ -133,19 +136,13 @@ Page({
                                     ['followitem['+ artistnum +']._id']:temp[0]._id,
                                 })
                                 for(var j=0;j<dlength;j++) {
-                                    // if(map.has(d[j]._id)) { // 如果有该key值
-                                    //     continue;
-                                    // }
-                                    // else{
-                                        // map.set(d[j]._id,j)
-                                        that.setData({
-                                            ['followitem['+ artistnum +'].moments[' + j +'].imgUrl']:d[j].imgUrl,
-                                            ['followitem['+ artistnum +'].moments[' + j +'].title']:d[j].title,
-                                            ['followitem['+ artistnum +'].moments[' + j +'].place']:d[j].place,
-                                            ['followitem['+ artistnum +'].moments[' + j +'].time']:d[j].time,
-                                            ['followitem['+ artistnum +'].moments[' + j +']._id']:d[j]._id,
-                                        })
-                                    // }
+                                    that.setData({
+                                        ['followitem['+ artistnum +'].moments[' + j +'].imgUrl']:d[j].imgUrl,
+                                        ['followitem['+ artistnum +'].moments[' + j +'].title']:d[j].title,
+                                        ['followitem['+ artistnum +'].moments[' + j +'].place']:d[j].place,
+                                        ['followitem['+ artistnum +'].moments[' + j +'].time']:d[j].time,
+                                        ['followitem['+ artistnum +'].moments[' + j +']._id']:d[j]._id,
+                                    })
                                 }
                                 artistnum++;
                             }
@@ -154,6 +151,22 @@ Page({
                 }
                 console.log(that.data.followitem)
                 // console.log(map)
+            }
+            else{
+                wx.showModal({
+                    title: 'BOUNCE',
+                    content: '你还没有关注的音乐人哦，关注音乐人随时获取最新演出动态吧',
+                    confirmText: '去关注',
+                    cancelText:'下次吧',
+                    success (res) {
+                        if (res.confirm) {
+                            wx.navigateTo({
+                                url: '/pages/artist/artist'
+                              })
+                        } else if (res.cancel) {
+                        }
+                    }
+                })
             }
         })
     },
