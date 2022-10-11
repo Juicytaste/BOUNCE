@@ -9,7 +9,6 @@ Y = date.getFullYear();
 M = (date.getMonth() + 1 < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1);
 D = ''
 YM = Y + '-' + M
-
 let RG = "广州"
 let cyear,cmonth
 let tof
@@ -29,10 +28,9 @@ Page({
         //处理时间格式
     onLoad(options) {
         let dateObj = new Date(Y,M,0);
-        let theMonthDay = dateObj.getDate();
         this.setData({
             minDate: new Date(Y, M-1, 1).getTime(),
-            maxDate: new Date(Y, M-1, theMonthDay).getTime(),
+            maxDate: new Date(Y, M-1, dateObj.getDate()).getTime(),
         })
         if(options != undefined && options.flag == "1"){
         Y = date.getFullYear()
@@ -40,7 +38,9 @@ Page({
         D = ''
         RG = "广州"
       }
-        YMDid = Y + M + D
+        YMDid = ''
+        YMDid = YMDid.concat(Y,M,D)
+        console.log(YMDid)
         if(D != ''){
           this.setData({
             checked:false
@@ -48,13 +48,13 @@ Page({
         }
         db.collection('Shows').where({
             city:RG,
-            date_id:db.RegExp({
+            id:db.RegExp({
                 regexp:YMDid + '.*',
                 options:'i',
             })
         }).get()
         .then(res => {
-            // console.log(res.data.length)
+            console.log(res.data.length)
             if(res.data.length == 0 ){
                 this.setData({
                     show_list:res.data,

@@ -13,8 +13,8 @@
 		<view class="hmly-bar-title">
 			<view class="hmly-title-left">我的关注</view>
 		</view>
-  <view class="hmly-like-item-box" style="white-space:nowrap" style="display: {{display}};">
-    <scroll-view scroll-x>
+  <view class="hmly-like-item-box"  style="display: {{display}};">
+    <scroll-view scroll-x="true" style="white-space:nowrap ;display:flex;">
         <view 
           class="hmly-like-item" 
           style="display: inline-block" 

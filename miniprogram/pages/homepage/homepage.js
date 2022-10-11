@@ -1,4 +1,7 @@
+const app = getApp()
 const db = wx.cloud.database()
+let onetime = true
+let onetime2 = true
 var QQMapWX = require('../../utils/qqmap-wx-jssdk');
 Page({
     data:{
@@ -67,16 +70,53 @@ Page({
                 }
             }
         })
-        db.collection('Shows').where({
-            city:getApp().globalData.userInfo.city
-        }).get()
-        .then(res => {
-            this.setData({
-                show_list:res.data
+        if(onetime2){
+            console.log(1)
+            db.collection('Shows').where({
+                city:getApp().globalData.userInfo.city
+            }).get()
+            .then(res => {
+                this.setData({
+                    show_list:res.data
+                })
             })
-        })
+            onetime2 = false
+        }
     },
     onLoad(options){
+        if(onetime){
+            const userId = app.globalData.userInfo.userId
+            wx.cloud.database().collection('UserProfile').where({
+              _openid: userId
+            }).get({
+              success: res => {console.log('用户存在',res)
+              if(res.data[0]){
+                    app.globalData.userInfo.avatarUrl = res.data[0].avatarUrl
+                    app.globalData.userInfo.nickName = res.data[0].nickName
+                    app.globalData.userInfo.once = res.data[0].once
+                    app.globalData.userInfo.city = res.data[0].city
+                    if(res.data[0]){
+                    wx.switchTab({
+                        url: '/pages/homepage/homepage',
+                    })
+                    wx.showToast({
+                        title: '登录成功',
+                        icon: 'tick'
+                    })
+                }
+              }
+              else{
+                wx.navigateTo({
+                    url: '/pages/login/login'
+                  })
+              }
+              },
+              fail : res => {
+                  console.log('获取失败',res)
+              }
+            })
+            onetime = false
+        }
         db.collection('Shows').where({
             city:this.data.city
         }).get()
@@ -204,9 +244,10 @@ Page({
         qqmapsdk = new QQMapWX({
           key: '6ALBZ-TXKWU-F4FVR-2QRFY-ADW4V-O7FM6'
         });
-        wx.getLocation({
+        wx.getFuzzyLocation({
           type: 'wgs84',
           success: function (res) {
+            console.log(res)
             //2、根据坐标获取当前位置名称，显示在顶部:腾讯地图逆地址解析
             qqmapsdk.reverseGeocoder({
               location: {
@@ -233,7 +274,19 @@ Page({
                 console.error(error);
               },
             })
-          }
+          },
+          fail: function (error) {
+            console.error(error);
+          },
         })
+      },
+      onShareAppMessage: function( options ){
+          return {
+              title:'所有你想要的live资讯|live爱好者都在用BOUNCE',
+              imageUrl:'https://6c61-lazydog-5gl0c2v7b448-7bh22424848-1308402135.tcb.qcloud.la/b42f3069ce65a4abcaa960578b00e9a.jpg',
+              
+          }
+      },
+      onShareTimeline:function(options){
       }
 })

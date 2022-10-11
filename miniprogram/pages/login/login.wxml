@@ -1,6 +1,6 @@
 <block>
   <!-- 登录区域 -->
-  <view class="login-container">
+  <view class="login-container" style="display:{{display}};">
     <button class="btn-login" bindtap="btnlogin">一键登录</button>
     <text class="tip-text">登录后尽享更多权益</text>
   </view>

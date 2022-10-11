@@ -44,8 +44,9 @@ Page{
 }
 .component{
     background-color:#ffffff;
-    margin: 0rpx auto;
-    height: 320rpx;
+    margin: 15rpx auto 15rpx;
+    height: 300rpx;
+    border-bottom: solid 1rpx ;
 }
 .com_right{
     font-family: "blod";

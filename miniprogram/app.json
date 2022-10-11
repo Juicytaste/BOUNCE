@@ -70,8 +70,11 @@
     ]
   },
   "permission": {
-    "scope.userLocation": {
+    "scope.userFuzzyLocation": {
       "desc": "您的位置信息用于快速录入检查地点"
     }
-  }
+  },    
+  "requiredPrivateInfos": [
+    "getFuzzyLocation"
+ ]
 }

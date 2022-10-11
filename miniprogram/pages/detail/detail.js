@@ -13,7 +13,9 @@ Page({
         time:'',
         city:'',
         color:'',
-        display:"none"
+        display:"none",
+        dmQR:'',
+        QRdisplay:'none'
     },
     onLoad(options){
         if(options != undefined) id = options.id
@@ -51,19 +53,22 @@ Page({
             urllist.push(res.data.mdUrl)
             urllist.push(res.data.xdUrl)
             urllist.push(res.data.dmUrl)
-            if(res.data.mdUrl != ''){
+            console.log(urllist)
+            if(res.data.mdUrl != "null" && res.data.mdUrl != undefined){
                 mddp = 'block'
             }else{
                 mddp = 'none'
             }
-            if(res.data.xdUrl != ''){
+            if(res.data.xdUrl != "null" && res.data.xdUrl != undefined){
                 xddp = 'block'
             }else{
                 xddp = 'none'
             }
-            if(res.data.dmUrl != ''){
+            if(res.data.dmUrl != "null" && res.data.dmUrl != undefined){
+                console.log(1,res.data.dmUrl)
                 dmdp = 'block'
             }else{
+                console.log(2,res.data.dmUrl)
                 dmdp = 'none'
             }
             this.setData({
@@ -160,18 +165,19 @@ Page({
             }
           })
     },
-    handleClickdm(){
-        wx.setClipboardData({
-            data: urllist[2],
-            success: function (res) {
-              wx.getClipboardData({
-                success: function (res) {
-                  wx.showToast({
-                    title: '请在浏览器打开'
-                  })
-                }
-              })
-            }
-          })
-    }
+    // handleClickdm(){
+    //     this.setData({
+    //         dmQR:urllist[2],
+    //         QRdisplay:'block'
+    //     })
+    // },
+	previewImage: function () {  
+        // var current=e.target.dataset.src;
+        var current = urllist[2]
+        // console.log(current)
+		wx.previewImage({
+              current: current,
+              urls:[current]
+		})
+	}
 })
